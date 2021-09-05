@@ -3,15 +3,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "dev": "concurrently \"vite\" \"tauri dev\"",
+    "build": "vite build && tauri build",
+    "dev:tauri": "tauri dev",
+    "build:tauri": "tauri build",
+    "dev:svelte": "vite",
+    "build:svelte": "vite build",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "tauri": "tauri"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.22",
     "@tauri-apps/cli": "^1.0.0-beta.10",
     "@tsconfig/svelte": "^2.0.1",
+    "concurrently": "^6.2.1",
     "sass": "^1.39.0",
     "svelte": "^3.42.4",
     "svelte-check": "^2.2.5",
